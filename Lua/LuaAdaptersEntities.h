@@ -163,6 +163,7 @@ namespace RTE {
 	LuaEntityCreate(Attachable);
 	LuaEntityCreate(Arm);
 	LuaEntityCreate(Leg);
+	LuaEntityCreate(LimbPath);
 	LuaEntityCreate(AEmitter);
 	LuaEntityCreate(Turret);
 	LuaEntityCreate(Actor);
@@ -192,6 +193,7 @@ namespace RTE {
 	LuaEntityClone(Attachable);
 	LuaEntityClone(Arm);
 	LuaEntityClone(Leg);
+	LuaEntityClone(LimbPath);
 	LuaEntityClone(Emission);
 	LuaEntityClone(AEmitter);
 	LuaEntityClone(Turret);
@@ -222,6 +224,7 @@ namespace RTE {
 	LuaEntityCast(Attachable);
 	LuaEntityCast(Arm);
 	LuaEntityCast(Leg);
+	LuaEntityCast(LimbPath);
 	LuaEntityCast(Emission);
 	LuaEntityCast(AEmitter);
 	LuaEntityCast(Turret);

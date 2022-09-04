@@ -456,6 +456,7 @@ namespace RTE {
 		.def("LookForMOs", &AHuman::LookForMOs)
 		.def("IsOnScenePoint", &AHuman::IsOnScenePoint)
 		.def("GetLimbPath", &AHuman::GetLimbPath)
+		.def("SetLimbPath", &AHuman::SetLimbPath)
 		.def("GetLimbPathSpeed", &AHuman::GetLimbPathSpeed)
 		.def("SetLimbPathSpeed", &AHuman::SetLimbPathSpeed)
 		.def("GetRotAngleTarget", &AHuman::GetRotAngleTarget)

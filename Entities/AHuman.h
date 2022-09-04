@@ -869,6 +869,14 @@ ClassInfoGetters;
     /// <returns>The LimbPath corresponding to the passed in Layer and MovementState values.</returns>
     LimbPath * GetLimbPath(Layer layer, MovementState movementState) { return &m_Paths[layer][movementState]; }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+// Method:  SetLimbPath
+//////////////////////////////////////////////////////////////////////////////////////////
+// Description:     Set limb path for the specified preset.
+// Arguments:       Layer, movement state, new limbpath.
+// Return value:    None
+
+	void SetLimbPath(Layer layer, MovementState movementState, LimbPath &limbPath);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Method:  GetLimbPathSpeed

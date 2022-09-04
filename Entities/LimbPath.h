@@ -41,7 +41,7 @@ enum Speed
 // Class history:   05/25/2001 LimbPath created.
 
 class LimbPath : public Entity {
-
+	friend struct EntityLuaBindings;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Public member variable, method and friend function declarations
@@ -58,7 +58,9 @@ ClassInfoGetters;
 // Constructor:     LimbPath
 //////////////////////////////////////////////////////////////////////////////////////////
 // Description:     Constructor method used to instantiate a LimbPath object in system
-//                  memory. Create() should be called before using the object.
+//                  memory. 
+// 
+// () should be called before using the object.
 // Arguments:       None.
 
     LimbPath() { Clear(); }

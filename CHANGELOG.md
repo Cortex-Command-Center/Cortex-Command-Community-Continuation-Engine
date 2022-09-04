@@ -5,6 +5,8 @@ All notable changes to this continuation will be documented in this file.
 ## [Unreleased]
 <details><summary><b>Added</b></summary>
 
+- New lua function for AHumans - `SetLimbPath(layer, movementState, newLimbPath)`. Use to replace LimbPaths on-the-go. Refer to Layer and MovementState enums for AHumans, and note the quirk that you'll need to replace both BG and FG paths even for things that aren't defined that way in .ini (like WalkPath).
+
 </details>
 
 <details><summary><b>Changed</b></summary>

@@ -86,7 +86,7 @@ namespace RTE {
 			RegisterLuaBindingsOfType(EntityLuaBindings, Entity),
 			RegisterLuaBindingsOfConcreteType(EntityLuaBindings, SoundContainer),
 			RegisterLuaBindingsOfType(EntityLuaBindings, SoundSet),
-			RegisterLuaBindingsOfType(EntityLuaBindings, LimbPath),
+			RegisterLuaBindingsOfConcreteType(EntityLuaBindings, LimbPath),
 			RegisterLuaBindingsOfAbstractType(EntityLuaBindings, SceneObject),
 			RegisterLuaBindingsOfAbstractType(EntityLuaBindings, MovableObject),
 			RegisterLuaBindingsOfType(EntityLuaBindings, Material),
