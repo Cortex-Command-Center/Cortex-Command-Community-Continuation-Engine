@@ -242,7 +242,7 @@ namespace RTE {
 			m_Activity->SetPaused(pause);
 			m_InActivity = !pause;
 			g_AudioMan.PauseAllMobileSounds(pause);
-			g_AudioMan.PauseAllImmobileSounds(pause);
+			//g_AudioMan.PauseAllImmobileSounds(pause);
 			g_ConsoleMan.PrintString("SYSTEM: Activity \"" + m_Activity->GetPresetName() + "\" was " + (pause ? "paused" : "resumed"));
 		} else {
 			g_ConsoleMan.PrintString("ERROR: No Activity to pause!");
