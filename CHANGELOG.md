@@ -16,6 +16,7 @@ All notable changes to this continuation will be documented in this file.
 <details><summary><b>Fixed</b></summary>
 
 - Fixed UI sounds cutting out by no longer trying to pause and resume immobile sounds, which UI sounds are a part of
+- Fixed Imperatus robots not being counted as Mechanical
 
 </details>
 
