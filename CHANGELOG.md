@@ -17,6 +17,7 @@ All notable changes to this continuation will be documented in this file.
 
 - Fixed UI sounds cutting out by no longer trying to pause and resume immobile sounds, which UI sounds are a part of
 - Fixed Imperatus robots not being counted as Mechanical
+- Fixed a bug in Entities/Activity.h which caused the game to crash after accessing unbounded values in an array during 3 player mode.
 
 </details>
 
@@ -45,7 +46,7 @@ All notable changes to this continuation will be documented in this file.
 - Chambering is here!
 
 	Chambering is a new stage for reloading after inserting a new magazine. It's optional and defaults to off, so don't worry. It should also be mostly seamless with regular reloading and thus not interfere with any scripts, but if you're doing particularly heavy lifting we recommend leaving this off.
-	
+
 	##### Properties
 	-	[R/W] **Chamberable** (default: 0/false): Denotes whether the gun is to ever be chambered.
 	-	[R/W] **ChamberingStartSound** (default: nil): Sound played on chamber start. Currently ChamberStartSound will overlap with ReloadEndSound a bit.If you want a delay after your chambering but don't want it to overlap with the reload sounds you will need to incorporate a small delay in your ChamberStartSound.
@@ -128,7 +129,7 @@ All notable changes to this continuation will be documented in this file.
 
 - All SoundSets and SubSoundSets can now have their own audio settings such as MinimumAudibleDistance, Volume etc. instead of just base SoundContainers.
 	If no specific setting is given for a SoundSet, it will use the SoundContainer's value, or a default if none at all was set. Offset works as before.
-	
+
 </details>
 
 <details><summary><b>Changed</b></summary>
