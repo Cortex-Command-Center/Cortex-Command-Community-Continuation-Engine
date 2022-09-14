@@ -11,6 +11,8 @@ All notable changes to this continuation will be documented in this file.
 
 <details><summary><b>Changed</b></summary>
 
+- Set default GripStrength of arms to 200 instead of 120 to try to make guns flying out of hands as opt-in as possible. Still not a guarantee, though.
+
 </details>
 
 <details><summary><b>Fixed</b></summary>

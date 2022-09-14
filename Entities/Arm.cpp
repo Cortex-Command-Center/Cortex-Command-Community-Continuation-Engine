@@ -30,7 +30,7 @@ ConcreteClassInfo(Arm, Attachable, 50);
 void Arm::Clear()
 {
     m_pHeldMO = nullptr;
-    m_GripStrength = 120.0F;
+    m_GripStrength = 200.0F;
     m_ThrowStrength = 25.0F;
     m_HandFile.Reset();
     m_pHand = nullptr;
