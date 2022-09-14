@@ -302,7 +302,15 @@ namespace RTE {
 		/// </summary>
 		/// <param name="player">The player to get the team info on.</param>
 		/// <returns>The team number of the specified player.</returns>
-		int GetTeamOfPlayer(int player) const { return m_Team[player]; }
+		int GetTeamOfPlayer(int player) const {
+			// Since this entire codebase is a bunch of hacks glued together with
+			// unspeakable bodily fluids, I think I am completely justified in
+			// doing the following atrocious patch to this godforsaken mess that
+			// is accessing undefined values in arrays. Please do better next time.
+			if (player == Players::NoPlayer)
+				return Activity::NoTeam;
+			return m_Team[player];
+		}
 
 		/// <summary>
 		/// Sets the current team a specific player belongs to.
@@ -484,7 +492,7 @@ namespace RTE {
 		int AIBrainCount() const { return GetBrainCount(false); }
 
 		/// <summary>
-		/// Gets the current Brain actor for a specific player. 
+		/// Gets the current Brain actor for a specific player.
 		/// </summary>
 		/// <param name="player">Which player to get the brain actor for.</param>
 		/// <returns>A pointer to the Brain Actor. Ownership is NOT transferred!</returns>
@@ -661,7 +669,7 @@ namespace RTE {
 
 		static Entity::ClassInfo m_sClass; //!< ClassInfo for this class.
 
-		ActivityState m_ActivityState; //!< Current state of this Activity.	
+		ActivityState m_ActivityState; //!< Current state of this Activity.
 		bool m_Paused; //!< Whether this Activity is paused or not.
 
 		std::string m_Description; //!< User-friendly description of what this Activity is all about.
@@ -686,7 +694,7 @@ namespace RTE {
 
 		int m_TeamCount; //!< The number of teams in the current Activity.
 		bool m_TeamActive[Teams::MaxTeamCount]; //!< Whether a specific team is active or not in this Activity.
-		int m_Team[Players::MaxPlayerCount]; //!< The designated team of each player.	
+		int m_Team[Players::MaxPlayerCount]; //!< The designated team of each player.
 		int m_TeamDeaths[Teams::MaxTeamCount]; //!< The count of how many actors have died on this team.
 		int m_TeamAISkillLevels[Teams::MaxTeamCount]; //!< AI skill levels for teams.
 
