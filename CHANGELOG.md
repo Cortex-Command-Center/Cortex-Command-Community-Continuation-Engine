@@ -12,6 +12,7 @@ All notable changes to this continuation will be documented in this file.
 <details><summary><b>Changed</b></summary>
 
 - Set default GripStrength of arms to 200 instead of 120 to try to make guns flying out of hands as opt-in as possible. Still not a guarantee, though.
+- Made Ronin heavies use their own, non-fingerless hand sprites, thanks James792 for the spot
 
 </details>
 
