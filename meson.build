@@ -141,8 +141,8 @@ prefix = get_option('prefix')
 
 conf_data.set_quoted(
   'BASEDATAPATH',
-  prefix/get_option('data_install_dir'),
-  strip_directory : true
+  prefix/get_option('data_install_dir')
+#  strip_directory : true
 )
 
 if suffix == ''
