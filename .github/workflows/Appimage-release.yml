@@ -1,10 +1,8 @@
 name: Appimage-release
 
 on:
-  workflow_dispatch:
-  push:
-    tags:
-      - "c4*"
+  workflow_dispatch
+  release
 
 jobs:
   build:
@@ -51,16 +49,16 @@ jobs:
           wget https://github.com/vlang/v/releases/latest/download/v_linux.zip
           unzip v_linux.zip
           sudo ln -s $PWD/v/v /usr/bin/v
-      - name: build deploy-tool
+      - name: build deploy-tool and zip
         run: |
           cp ./Cortex-Command-Community-Continuation-Engine/build/CortexCommand ./deploy-tool/binaries/CortexCommand
           cd deploy-tool
           ./build_deploy.sh
-          ./c4-deployment-tool
+          ./c4-deployment-tool -v ${{ github.event.release.tag_name }}
           cd ..
       - name: upload to release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: ./deploy-tool/C4-*.zip
+          args: ./deploy-tool/C4-${{ github.event.release.tag_name }}-lin64.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
