@@ -45,8 +45,12 @@ jobs:
         run: |
           sudo apt install -y zip \
           zsync \
+          unzip \
           patchelf
           sudo pip3 install appimage-builder
+          wget https://github.com/vlang/v/releases/latest/download/v_linux.zip
+          unzip v_linux.zip
+          sudo ln -s $PWD/v/v /usr/bin/v
       - name: build deploy-tool
         run: |
           cp ./Cortex-Command-Community-Continuation-Engine/build/CortexCommand ./deploy-tool/binaries/CortexCommand
