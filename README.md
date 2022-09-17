@@ -108,7 +108,7 @@ If you want to change the buildtype afterwards, you can use `meson configure --b
 **Arch Linux:**
 
 ```bash
-pacman -S allegro4 boost flac luajit lua52 minizip lz4 libpng libx11 xorg-xmessage meson ninja base-devel
+sudo pacman -S allegro4 boost flac luajit lua52 minizip lz4 libpng libx11 xorg-xmessage meson ninja base-devel
 ```
 
 **Ubuntu >=20.04:** 
