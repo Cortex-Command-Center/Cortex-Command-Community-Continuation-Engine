@@ -45,8 +45,8 @@ jobs:
         run: |
           sudo apt install -y zip \
           zsync \
-          patchelf \
-          sudo pip install appimage-builder
+          patchelf
+          sudo pip3 install appimage-builder
       - name: build deploy-tool
         run: |
           cp ./Cortex-Command-Community-Continuation-Engine/build/CortexCommand ./deploy-tool/binaries/CortexCommand
