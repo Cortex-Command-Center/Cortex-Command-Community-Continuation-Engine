@@ -1,0 +1,61 @@
+name: Appimage-release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "c4*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone Engine
+        run: |
+          git clone https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine.git
+      - name: clone Data
+        run: |
+          git clone https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Data.git
+      - name: install dependencies
+        run: |
+          sudo apt install -y build-essential \
+          libboost-dev \
+          liballegro4-dev \
+          libloadpng4-dev \
+          libflac++-dev \
+          luajit-5.1-dev \
+          liblua5.2-dev \
+          libminizip-dev \
+          liblz4-dev \
+          libpng++-dev \
+          libx11-dev \
+          ninja-build \
+          meson
+      - name: build engine
+        run: |
+          cd Cortex-Command-Community-Continuation-Engine/
+          meson build
+          ninja -C build
+          cd ..
+      - name: clone deploy-tool
+        run: |
+          git clone https://github.com/Cortex-Command-Center/deploy-tool.git
+      - name: install deploy-tool dependencies
+        run: |
+          sudo apt install -y zip \
+          zsync \
+          patchelf \
+          sudo pip install appimage-builder
+      - name: build deploy-tool
+        run: |
+          cp ./Cortex-Command-Community-Continuation-Engine/build/CortexCommand ./deploy-tool/binaries/CortexCommand
+          cd deploy-tool
+          ./build_deploy.sh
+          ./c4-deployment-tool
+          cd ..
+      - name: upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: ./deploy-tool/C4-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
