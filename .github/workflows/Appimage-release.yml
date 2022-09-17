@@ -1,8 +1,8 @@
 name: Appimage-release
 
 on:
-  workflow_dispatch
-  release
+  workflow_dispatch:
+  release:
 
 jobs:
   build:
