@@ -3,6 +3,7 @@ name: Appimage-release
 on:
   workflow_dispatch:
   release:
+    types: [published]
 
 jobs:
   build:
@@ -59,6 +60,6 @@ jobs:
       - name: upload to release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: ./deploy-tool/C4-${{ github.event.release.tag_name }}-lin64.zip
+          args: ./deploy-tool/C4-${{ github.event.release.tag_name }}-lin64.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
