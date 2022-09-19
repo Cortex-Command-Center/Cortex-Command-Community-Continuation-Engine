@@ -1,4 +1,5 @@
 # Cortex Command Community Continuation Source
+
 *The Cortex Command Community Continuation is Free/Libre and Open Source under GNU AGPL v3*
 
 This is a community-driven effort to continue the development of Cortex Command.
@@ -7,6 +8,7 @@ Stay up to date in our [Discord channel](https://discord.gg/Fwyar4Uvx6).
 ***
 
 # How to Play the Game
+
 If you just want to play the latest version of the game you can get it here on github in the [releases](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/releases) section.
 
 You can get mods specifically for C4 at [the C4 mod io](https://c4.old.mod.io)
@@ -16,15 +18,16 @@ However, all CCCP mods from their [mod portal](https://cccp.mod.io) should also 
 ***
 
 # Windows Build Instructions
+
 First you need to download the necessary files:
 
 1. Install the necessary tools.
-You'll probably want [Visual Studio Community Edition](https://visualstudio.microsoft.com/downloads/) (build supports both 2017 and 2019 versions).
-You also need to have both x86 and x64 versions of the [Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed in order to run the compiled builds.
-You may also want to check out the list of recommended Visual Studio plugins [here](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/wiki).
+   You'll probably want [Visual Studio Community Edition](https://visualstudio.microsoft.com/downloads/) (build supports both 2017 and 2019 versions).
+   You also need to have both x86 and x64 versions of the [Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed in order to run the compiled builds.
+   You may also want to check out the list of recommended Visual Studio plugins [here](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/wiki).
 
 2. Clone this Source Repository and the [Data Repository](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Data) in neighboring folders.
-**Do Not** change the folder names unless you want to make trouble for yourself.
+   **Do Not** change the folder names unless you want to make trouble for yourself.
 
 3. Copy the following libraries from `Cortex-Command-Community-Continuation-Source\external\lib\` into the **Data Repository**:
 * `lua51.dll`
@@ -47,10 +50,13 @@ If you want to use an IDE other than Visual Studio, you will have to build using
 ***
 
 # Linux Build Instructions
+
 The Linux build uses the meson build system, and builds against system libraries.
 
 ## Dependencies
+
 You need to install the development (they may be suffixed with `-dev` or `-devel`) versions of the following libraries:
+
 * `g++>=8.1` (needs to support c++17 filesystem)
 * `allegro4`
 * `loadpng`
@@ -82,14 +88,15 @@ You need to install the development (they may be suffixed with `-dev` or `-devel
 If you want to change the buildtype afterwards, you can use `meson configure --buildtype {release or debug}` in the build directory or create a secondary build directory as in Step 4. There are also additional build options documented in the [wiki](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/wiki) as well as through running `meson configure` in the build directory.
 
 ## Running
+
 (If you installed the game in step 6 above, it should appear with your regular applications and will just run)
 
 1. Copy (or link, might be preferable for testing builds) `build/CortexCommand` or `build/CortexCommand_debug` (depending on if you made a debug build) into the **Data Repository**.
-
+   
    `cd $DATA_REPOSITORY; ln -s ../Cortex-Command-Community-Continuation-Source/build/CortexCommand . `
 
 2. Copy all `libfmod` files from `external/lib/linux/x86_64` into the **Data Repository**.
-
+   
    `cd $DATA_REPOSITORY; ln -s ../Cortex-Command-Community-Continuation-Source/external/lib/linux/x86_64/libfmod.so* .`
 
 3. Copy `Scenes.rte` and `Metagames.rte` from your purchased copy of Cortex Command into **Data Repository**.
@@ -99,10 +106,29 @@ If you want to change the buildtype afterwards, you can use `meson configure --b
 ## Installing Dependencies
 
 **Arch Linux:**
-`# pacman -S allegro4 boost flac luajit lua52 minizip lz4 libpng libx11 xorg-xmessage meson ninja base-devel`
 
-**Ubuntu >=20.04:**
-`# apt-get install build-essential libboost-dev liballegro4-dev libloadpng4-dev libflac++-dev luajit-5.1-dev liblua5.2-dev libminizip-dev liblz4-dev libpng++-dev libx11-dev ninja-build meson`
+```bash
+sudo pacman -S allegro4 boost flac luajit lua52 minizip lz4 libpng libx11 xorg-xmessage meson ninja base-devel
+```
+
+**Ubuntu >=20.04:** 
+
+```bash
+sudo apt install -y build-essential \
+ libboost-dev \
+ liballegro4-dev \
+ libloadpng4-dev \
+ libflac++-dev \
+ libluajit-5.1-dev \
+ liblua5.2-dev \
+ libminizip-dev \
+ liblz4-dev \
+ libpng++-dev \
+ libx11-dev \
+ ninja-build \
+ meson
+```
+
 ## Troubleshooting
 
 * On some distros some keyboards and mice are recognized as controllers, to fix this follow these instructions: [https://github.com/denilsonsa/udev-joystick-blacklist](https://github.com/denilsonsa/udev-joystick-blacklist)
@@ -114,6 +140,7 @@ If you want to change the buildtype afterwards, you can use `meson configure --b
 ***
 
 **Windows 10 (64-bit) without Visual Studio**
+
 - [Windows SDK](https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk/)
 - [Clang Toolset](https://github.com/llvm/llvm-project/releases) (Grab the latest LLVM-...-win64.exe)
 - [git](https://www.git-scm.org)

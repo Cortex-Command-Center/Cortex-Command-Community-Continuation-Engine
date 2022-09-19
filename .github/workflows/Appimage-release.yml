@@ -1,0 +1,69 @@
+name: Appimage-release
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone Engine
+        run: |
+          git clone https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine.git
+      - name: clone Data
+        run: |
+          git clone https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Data.git
+      - name: install dependencies
+        run: |
+          sudo add-apt-repository universe
+          sudo apt install -y build-essential \
+          libboost-dev \
+          liballegro4-dev \
+          libloadpng4-dev \
+          libflac++-dev \
+          libluajit-5.1-dev \
+          liblua5.2-dev \
+          libminizip-dev \
+          liblz4-dev \
+          libpng++-dev \
+          libx11-dev \
+          ninja-build \
+          meson
+      - name: build engine
+        run: |
+          cd Cortex-Command-Community-Continuation-Engine/
+          meson build
+          ninja -C build
+          cd ..
+      - name: clone deploy-tool
+        run: |
+          git clone https://github.com/Cortex-Command-Center/deploy-tool.git
+      - name: install deploy-tool dependencies
+        run: |
+          sudo apt install -y zip \
+          zsync \
+          unzip \
+          patchelf
+          sudo pip3 install appimage-builder
+          wget https://github.com/vlang/v/releases/latest/download/v_linux.zip
+          unzip v_linux.zip
+          sudo ln -s $PWD/v/v /usr/bin/v
+      - name: build deploy-tool and zip
+        run: |
+          cp ./Cortex-Command-Community-Continuation-Engine/build/CortexCommand ./deploy-tool/binaries/CortexCommand
+          cd deploy-tool
+          ./build_deploy.sh
+          ./c4-deployment-tool -v ${{ github.event.release.tag_name }}
+          mkdir ../out
+          mv *.zip ../out/
+          cd ..
+      - name: Upload files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          ls -lh out/* # Assuming you have some files in out/ that you would like to upload
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh out/*
