@@ -3,7 +3,8 @@
 *The Cortex Command Community Continuation is Free/Libre and Open Source under GNU AGPL v3*
 
 This is a community-driven effort to continue the development of Cortex Command.
-Stay up to date in our [Discord channel](https://discord.gg/Fwyar4Uvx6).
+
+We are currently a little bit de-platformed. We're working on changing that. You can reach us best, probably, on [Communities](https://communities.win/c/CortexCommand).
 
 ***
 
