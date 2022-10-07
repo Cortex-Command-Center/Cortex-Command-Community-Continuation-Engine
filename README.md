@@ -6,13 +6,15 @@ This is a community-driven effort to continue the development of Cortex Command.
 
 We are currently a little bit de-platformed. We're working on changing that. You can reach us best, probably, on [Communities](https://communities.win/c/CortexCommand).
 
+[Temporary, non-CC Discord](https://discord.gg/2wcXT6PQpR)
+
 ***
 
 # How to Play the Game
 
 If you just want to play the latest version of the game you can get it here on github in the [releases](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/releases) section.
 
-You can get mods specifically for C4 at [the C4 mod io](https://c4.old.mod.io)
+You can get mods specifically for C4 at [the C4 modDB](https://www.moddb.com/games/cortex-command-community-continuation)
 
 However, all CCCP mods from their [mod portal](https://cccp.mod.io) should also work.
 
