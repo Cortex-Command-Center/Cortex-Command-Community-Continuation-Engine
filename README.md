@@ -4,9 +4,7 @@
 
 This is a community-driven effort to continue the development of Cortex Command.
 
-We are currently a little bit de-platformed. We're working on changing that. You can reach us best, probably, on [Communities](https://communities.win/c/CortexCommand).
-
-[Temporary, non-CC Discord](https://discord.gg/2wcXT6PQpR)
+We are currently a little bit de-platformed. We're working on changing that.
 
 ***
 
