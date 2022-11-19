@@ -34,7 +34,7 @@ jobs:
       - name: build engine
         run: |
           cd Cortex-Command-Community-Continuation-Engine/
-          meson build
+          meson build -Ddebug=false
           ninja -C build
           cd ..
       - name: clone deploy-tool
