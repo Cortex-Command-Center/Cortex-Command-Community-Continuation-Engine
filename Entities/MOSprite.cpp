@@ -149,6 +149,8 @@ int MOSprite::Create(const MOSprite &reference)
     m_SettleMaterialDisabled = reference.m_SettleMaterialDisabled;
     m_pEntryWound = reference.m_pEntryWound;
     m_pExitWound = reference.m_pExitWound;
+
+
 //    if (reference.m_pExitWound)  Not doing anymore since we're not owning
 //        m_pExitWound = dynamic_cast<AEmitter *>(reference.m_pExitWound->Clone());
 
@@ -321,12 +323,12 @@ void MOSprite::Destroy(bool notInherited)
 
 void MOSprite::SetFrame(unsigned int newFrame)
 {
-    if (newFrame < 0)
-        newFrame = 0;
-    if (newFrame >= m_FrameCount)
-        newFrame = m_FrameCount - 1;
+	if (newFrame < 0)
+		newFrame = 0;
+	if (newFrame >= m_FrameCount)
+		newFrame = m_FrameCount - 1;
 
-    m_Frame = newFrame;
+	m_Frame = newFrame;
 }
 
 
@@ -454,24 +456,28 @@ Vector MOSprite::UnRotateOffset(const Vector &offset) const
 void MOSprite::Update() {
 	MovableObject::Update();
 
-	// First, check that the sprite has enough frames to even have an animation and override the setting if not
-	if (m_FrameCount > 1) {
-		// If animation mode is set to something other than ALWAYSLOOP but only has 2 frames, override it because it's pointless
-		if ((m_SpriteAnimMode == ALWAYSRANDOM || m_SpriteAnimMode == ALWAYSPINGPONG) && m_FrameCount == 2) {
-			m_SpriteAnimMode = ALWAYSLOOP;
-		} else if (m_SpriteAnimMode == OVERLIFETIME) {
-			// If animation mode is set to over lifetime but lifetime is unlimited, override to always loop otherwise it will never animate.
-			if (m_Lifetime == 0) {
+	// No, first check if the sprite is EVEN ANIMATED and then do that.
+	if (m_SpriteAnimMode != NOANIM)
+	{
+		// First, check that the sprite has enough frames to even have an animation and override the setting if not
+		if (m_FrameCount > 1 && m_SpriteAnimMode) {
+			// If animation mode is set to something other than ALWAYSLOOP but only has 2 frames, override it because it's pointless
+			if ((m_SpriteAnimMode == ALWAYSRANDOM || m_SpriteAnimMode == ALWAYSPINGPONG) && m_FrameCount == 2) {
 				m_SpriteAnimMode = ALWAYSLOOP;
-			} else {
-				double lifeTimeFrame = static_cast<double>(m_FrameCount) * (m_AgeTimer.GetElapsedSimTimeMS() / static_cast<double>(m_Lifetime));
-				m_Frame = static_cast<int>(std::floor(lifeTimeFrame));
-				if (m_Frame >= m_FrameCount) { m_Frame = m_FrameCount - 1; }
-				return;
+			} else if (m_SpriteAnimMode == OVERLIFETIME) {
+				// If animation mode is set to over lifetime but lifetime is unlimited, override to always loop otherwise it will never animate.
+				if (m_Lifetime == 0) {
+					m_SpriteAnimMode = ALWAYSLOOP;
+				} else {
+					double lifeTimeFrame = static_cast<double>(m_FrameCount) * (m_AgeTimer.GetElapsedSimTimeMS() / static_cast<double>(m_Lifetime));
+					m_Frame = static_cast<int>(std::floor(lifeTimeFrame));
+					if (m_Frame >= m_FrameCount) { m_Frame = m_FrameCount - 1; }
+					return;
+				}
 			}
+		} else {
+			m_SpriteAnimMode = NOANIM;
 		}
-	} else {
-		m_SpriteAnimMode = NOANIM;
 	}
 
 	// Animate the sprite, if applicable
@@ -499,6 +505,16 @@ void MOSprite::Update() {
 			    m_SpriteAnimIsReversingFrames ? m_Frame-- : m_Frame++;
                 m_SpriteAnimTimer.Reset();
 			    break;
+			case FRAMESAREALTS:
+				if (!m_AnimAltsSetup)
+				{
+					if (m_FrameCount > 1)
+						m_Frame = RandomNum<int>(0, m_FrameCount - 1);
+					else
+						m_Frame = 0;
+					m_AnimAltsSetup = true;
+					break;
+				}
 		    default:
 			    break;
 		}

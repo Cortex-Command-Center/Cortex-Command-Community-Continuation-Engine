@@ -53,6 +53,7 @@ public:
         PINGPONGOPENCLOSE,
 		OVERLIFETIME,
 		ONCOLLIDE,
+		FRAMESAREALTS,
         SpriteAnimModeCount
     };
 
@@ -607,6 +608,8 @@ protected:
     const AEmitter *m_pEntryWound;
     // Exit wound template
     const AEmitter *m_pExitWound;
+
+	bool m_AnimAltsSetup;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
