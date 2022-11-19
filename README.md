@@ -3,7 +3,8 @@
 *The Cortex Command Community Continuation is Free/Libre and Open Source under GNU AGPL v3*
 
 This is a community-driven effort to continue the development of Cortex Command.
-Stay up to date in our [Discord channel](https://discord.gg/Fwyar4Uvx6).
+
+We are currently a little bit de-platformed. We're working on changing that.
 
 ***
 
@@ -11,7 +12,7 @@ Stay up to date in our [Discord channel](https://discord.gg/Fwyar4Uvx6).
 
 If you just want to play the latest version of the game you can get it here on github in the [releases](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/releases) section.
 
-You can get mods specifically for C4 at [the C4 mod io](https://c4.old.mod.io)
+You can get mods specifically for C4 at [the C4 modDB](https://www.moddb.com/games/cortex-command-community-continuation)
 
 However, all CCCP mods from their [mod portal](https://cccp.mod.io) should also work.
 
