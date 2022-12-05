@@ -4,7 +4,7 @@
 
 This is a community-driven effort to continue the development of Cortex Command.
 
-We are currently a little bit de-platformed. We're working on changing that.
+Our self-hosted chat is here: [Rocket.Chat](https://www.cortexcommandcenter.net/home)
 
 ***
 
