@@ -112,6 +112,8 @@ namespace RTE {
 			reader >> m_IsFaction;
 		} else if (propName == "Version") {
 			reader >> m_Version;
+		} else if (propName == "SupportedGameVersion") {
+			reader >> m_SupportedGameVersion;
 		} else if (propName == "ScanFolderContents") {
 			reader >> m_ScanFolderContents;
 		} else if (propName == "IgnoreMissingItems") {
@@ -121,8 +123,6 @@ namespace RTE {
 		} else if (propName == "ScriptPath") {
 			reader >> m_ScriptPath;
 			LoadScripts();
-		} else if (propName == "SupportedGameVersion") {
-			// do nothing - neither we nor cccp have enough modders combined to warrant this
 		} else if (propName == "Require") {
 			// Check for required dependencies if we're not load properties
 			std::string requiredModule;

@@ -264,6 +264,7 @@ namespace RTE {
 		std::string m_Author; //!< Name of the author of this module.
 		std::string m_Description; //!< Brief description of what this module is and contains.
 		std::string m_ScriptPath; //!< Path to script to execute when this module is loaded.
+		std::string m_SupportedGameVersion; //!<Supported version tag (TODO: not actually enforced).
 		bool m_IsFaction; //!< Whether this data module is considered a faction.
 		int m_Version; //!< Version number, starting with 1.
 		int m_ModuleID; //!< ID number assigned to this upon loading, for internal use only, don't reflect in ini's.
