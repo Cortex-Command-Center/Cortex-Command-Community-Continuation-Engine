@@ -2,18 +2,59 @@
 
 All notable changes to this continuation will be documented in this file.
 
-## [Unreleased]
+## Unreleased
+<details><summary><b>Added</b></summary>
+
+</details>
+
+<details><summary><b>Changed</b></summary>
+
+</details>
+
+<details><summary><b>Fixed</b></summary>
+
+</details>
+
+<details><summary><b>Removed</b></summary>
+
+</details>
+
+***
+
+## [C4 Version 2.2](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/releases/tag/c4v2.0.2) - 2022/09/16
+<details><summary><b>Added</b></summary>
+
+- New SpriteAnimMode - `FRAMESAREALTS` or 9 which will pick one random frame and stick with it. Replacement for RandomFrame .luas.
+- No more small updates, back to bigger ones
+
+</details>
+
+<details><summary><b>Changed</b></summary>
+
+</details>
+
+<details><summary><b>Fixed</b></summary>
+
+</details>
+
+<details><summary><b>Removed</b></summary>
+
+</details>
+
+***
+
+## [C4 Version 2.1](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Engine/releases/tag/c4v2.0.1-actual-0.1) - 2022/09/16
 <details><summary><b>Added</b></summary>
 
 - New lua function for AHumans - `SetLimbPath(layer, movementState, newLimbPath)`. Use to replace LimbPaths on-the-go. Refer to Layer and MovementState enums for AHumans, and note the quirk that you'll need to replace both BG and FG paths even for things that aren't defined that way in .ini (like WalkPath).
 
-- You can now use SpriteAnimMode 9 in place of lua to randomize sprites.
 </details>
 
 <details><summary><b>Changed</b></summary>
 
 - Set default GripStrength of arms to 200 instead of 120 to try to make guns flying out of hands as opt-in as possible. Still not a guarantee, though.
 - Made Ronin heavies use their own, non-fingerless hand sprites, thanks James792 for the spot
+- CCCP compat: renamed all SpinSound.flacs to Spin.flac
 
 </details>
 
@@ -1349,7 +1390,6 @@ All notable changes to this continuation will be documented in this file.
 Note: For a log of changes made prior to the commencement of the open source community project, look [here.](https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Source/wiki/Previous-Closed-Source-Changelog)
 
 
-[unreleased]: https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Source/compare/master...cortex-command-community:development
 [0.1.0-pre1]: https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Data/releases/tag/v0.1.0-pre1
 [0.1.0-pre2]: https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Data/releases/tag/v0.1.0-pre2
 [0.1.0-pre3.0]: https://github.com/Cortex-Command-Center/Cortex-Command-Community-Continuation-Source/releases/tag/v0.1.0-pre3.0
